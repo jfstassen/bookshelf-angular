@@ -15,8 +15,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { LayoutModule } from '@angular/cdk/layout';
 // import { ElishCustomMaterialModule } from './shared/elish.material.module';
-// import { FooterComponent } from './shared/footer/footer.component';
-// import { HeaderComponent } from './shared/header/header.component';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { BackendService } from './services/backend-service';
@@ -24,6 +23,8 @@ import { AuthGuard } from './services/auth-guard.service';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ElishCustomMaterialModule } from './styles';
+import { BooksComponent } from './books/books.component';
+import { HeaderComponent } from './header/header.component';
 
 
 export function createApollo(httpLink: HttpLink) {
@@ -38,10 +39,11 @@ export function createApollo(httpLink: HttpLink) {
       if (!token) {
         return {};
       } else {
+        console.log(headers.append('Authorization', `Bearer ${token}`))
         return {
-          //headers: headers.append('Authorization', `Bearer ${token}`)
-          //headers: new HttpHeaders().set('Authorization', `${token}`)
-          headers: new HttpHeaders().set('token', `${token}`)
+          headers: headers.append('Authorization', `Bearer ${token}`)
+          // headers: new HttpHeaders().set('Authorization', `${token}`)
+          // headers: new HttpHeaders().set('token', `${token}`)
         };
       }
     });
@@ -56,7 +58,9 @@ export function createApollo(httpLink: HttpLink) {
   declarations: [
     AppComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    BooksComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

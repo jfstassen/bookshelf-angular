@@ -5,11 +5,17 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 
 import { AuthGuard } from './services/auth-guard.service';
+import { BooksComponent } from './books/books.component';
 
 
 const routes: Routes = [
   { path: 'auth/signup', component: SignupComponent},
-  { path: 'auth/signin', component: SigninComponent}
+  { path: 'auth/signin', component: SigninComponent},
+  { path: 'books', component: BooksComponent, canActivate: [AuthGuard]},
+  { path: '', component: SigninComponent},
+  { path: '**', redirectTo: 'auth/signin', pathMatch: 'full' }
+
+
 ];
 
 @NgModule({

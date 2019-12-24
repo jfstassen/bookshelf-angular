@@ -4,12 +4,14 @@ import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
 import { environment } from '../../environments/environment';
 
-const getUser_Q = gql`query userQueries {
-  getUser_Q {
-    name
-    email
+const getBooks = gql`query books($all: true) {
+  nodes{
+    title
   }
-}`;
+} 
+
+
+  `;
 const loginWithBasic = gql`mutation loginWithBasic($login: String!, $pass: String!, $useCookie: Boolean) {
   loginWithBasic(login: $login, pass: $pass, useCookie: $useCookie){
     token
@@ -34,6 +36,9 @@ const updateUser_M = gql`mutation updateQueries($name: String!, $email: String!,
 })
 
 export class BackendService {
+  // getBooks(formData: any) {
+  //   throw new Error("Method not implemented.");
+  // }
 
   constructor(private _http: HttpClient, private _apollo: Apollo) { }
 
@@ -41,8 +46,8 @@ export class BackendService {
     return environment.social;
   }
 
-  getUser(){
-    return this._apollo.watchQuery({query: getUser_Q});
+  getBooks(){
+    return this._apollo.watchQuery({query: getBooks});
   }
   
   loginUser(formData){
@@ -70,10 +75,10 @@ export class BackendService {
   }
 
   // function to send emails using a PHP API
-  sendEmail(messageData) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/X-www-form-urlencoded' })
-    };
-    return this._http.post(environment.emailAPI, messageData, httpOptions);
-  }
+  // sendEmail(messageData) {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({ 'Content-Type': 'application/X-www-form-urlencoded' })
+  //   };
+  //   return this._http.post(environment.emailAPI, messageData, httpOptions);
+  // }
 }

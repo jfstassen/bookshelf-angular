@@ -1,27 +1,49 @@
-// import { Component, OnInit } from '@angular/core';
-// import {AuthService} from '../services/auth.service';
-// import { map } from 'rxjs/operators';
 
-// @Component({
-//   selector: 'app-header',
-//   templateUrl: './header.component.html',
-//   styleUrls: ['./header.component.scss']
-// })
-// export class HeaderComponent implements OnInit {
-//   logged: boolean = false;
+import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { BackendService } from '../services/backend-service';
 
-//   constructor(private authService: AuthService) { }
+@Component({
+  selector: 'header',
+  templateUrl: 'header.component.html'
+})
+export class HeaderComponent implements OnInit {
+  @Input() imageUrl: string;
+  @Input() pageTitle: string;
+  @Input() helpType: string;
+  emailSent = false;
+  selectedValue;
+  formShowing = false;
+  configData;
 
-//   ngOnInit() {
-//     this.authService.isAuthenticated
-//       .pipe() // Only emit when the current value is different than the last
-//       .subscribe(isAuthenticated => {
-//         this.logged = isAuthenticated
-//       });
+  error: any;
+  dataLoading: boolean = false;
+  brokenNetwork = false;
 
+  constructor(private _backendService: BackendService) {
+  }
+
+  ngOnInit(){
+    this.configData = this._backendService.getConfig();
+  }
+
+//   onSubmit(formData) {
+//     this.dataLoading = true;
+//     //console.log(formData);
+//     this._backendService.sendEmail(formData).subscribe(
+//       res => {
+//         //console.log(res);
+//       },
+//       error => {
+//         //console.log(error);
+//         console.log("API didn't respond.");
+//         this.brokenNetwork = true;
+//         this.dataLoading = false;
+//       },
+//       () => {
+//         this.dataLoading = false;
+//         this.emailSent = true;
+//       }
+//     )
 //   }
-
-//   logout() {
-//     this.authService.logout();
-//   }
-// }
+}

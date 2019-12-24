@@ -11,7 +11,6 @@ import { Observable } from "rxjs";
 })
 
 export class SigninComponent implements OnInit  {
-  socialAuth: boolean = false; // show Google and FB Sign in only when social auth is enabled
   error: any;
   dataLoading: boolean = false;
   brokenNetwork = false;
@@ -21,9 +20,6 @@ export class SigninComponent implements OnInit  {
   constructor(private _router: Router, private _backendService: BackendService) { }
 
   ngOnInit() {
-    if(environment.socialAuthEnabled) {
-      this.socialAuth = true; // show Google and FB Sign in only when social auth is enabled
-    }
     if(localStorage.getItem("token")) {
       this.user = true;
       console.log(localStorage)
@@ -36,6 +32,7 @@ export class SigninComponent implements OnInit  {
       if(res.data["loginWithBasic"].token != "") {
         window.localStorage.setItem("token",res.data["loginWithBasic"].token);
         this.user = true;
+        this._router.navigate(["../books"])
       } else {
         this.error = "UserID/Password don't match.";
       }
