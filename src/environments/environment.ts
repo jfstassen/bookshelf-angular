@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  emailAPI: 'http://elisheducation.com/contact-form-ecrm.php',
+  database: 'graphql' ,
+  social: {
+    fblink: 'https://www.facebook.com/elishconsulting',
+    linkedin: 'https://www.linkedin.com/in/ashuklax/',
+    github: 'https://github.com/AmitXShukla',
+    emailid: 'info@elishconsulting.com'
+  },
+  socialAuthEnabled: false,
+  graphql: 'https://graph.becode.xyz/'
 };
 
 /*

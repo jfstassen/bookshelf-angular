@@ -1,0 +1,14 @@
+<div>
+  <div>
+    <div>Hacker News</div>
+    <a [routerLink]="['/']">new</a>
+    <div *ngIf="logged">
+      <div>|</div>
+      <a [routerLink]="['/create']">submit</a>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="logged" (click)="logout()">logout</div>
+    <a *ngIf="!logged" [routerLink]="['auth/signin']">login</a>
+  </div>
+</div>
