@@ -14,8 +14,20 @@ const getBooks = gql`{ books(all: true) {
     format
     }
   }
-}
-  `;
+}`;
+const getBookInfo = gql`query book($isbn: ID!) {
+  book(isbn: $isbn){
+    isbn
+    titl
+    author
+    editor
+
+    cover
+    
+    
+  }
+  
+}`
 const loginWithBasic = gql`mutation loginWithBasic($login: String!, $pass: String!, $useCookie: Boolean) {
   loginWithBasic(login: $login, pass: $pass, useCookie: $useCookie){
     token
@@ -52,6 +64,12 @@ export class BackendService {
 
   getBooks(){
     return this._apollo.watchQuery({query: getBooks});
+  }
+  getBookInfo(){
+    return this._apollo.watchQuery({query: getBookInfo,
+    variables: {
+      isbn: "978-1-685-28673-4"
+    }});
   }
   
   loginUser(formData){

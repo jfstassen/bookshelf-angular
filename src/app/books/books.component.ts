@@ -26,6 +26,7 @@ export class BooksComponent implements OnInit {
     this._backendService.getBooks().valueChanges.subscribe(res => {
       this.dataLoading = false;
       this.books = res.data["books"].nodes;
+      console.log(typeof(this.books))
     },
     (error) => {
       this.error = error;
