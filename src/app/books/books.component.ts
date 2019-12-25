@@ -19,20 +19,13 @@ export class BooksComponent implements OnInit {
 
   ngOnInit() {
     this.retrievebooks();
+ 
   }
   retrievebooks() {
+    this.dataLoading = true;
     this._backendService.getBooks().valueChanges.subscribe(res => {
       this.dataLoading = false;
-      this.books = res.data;
-      console.log(res.data)
-      console.log("lol")
-      // if(res.data["loginWithBasic"].token != "") {
-      //   window.localStorage.setItem("token",res.data["loginWithBasic"].token);
-      //   this.user = true;
-
-      // } else {
-      //   this.error = "UserID/Password don't match.";
-      // }
+      this.books = res.data["books"].nodes;
     },
     (error) => {
       this.error = error;

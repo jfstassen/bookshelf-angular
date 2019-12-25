@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// setup apollo
 import { HttpHeaders } from '@angular/common/http';
 import { Apollo, ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
@@ -13,8 +12,7 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { LayoutModule } from '@angular/cdk/layout';
-// import { ElishCustomMaterialModule } from './shared/elish.material.module';
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,9 +20,10 @@ import { BackendService } from './services/backend-service';
 import { AuthGuard } from './services/auth-guard.service';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { ElishCustomMaterialModule } from './styles';
 import { BooksComponent } from './books/books.component';
 import { HeaderComponent } from './header/header.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+
 
 
 export function createApollo(httpLink: HttpLink) {
@@ -39,10 +38,9 @@ export function createApollo(httpLink: HttpLink) {
       if (!token) {
         return {};
       } else {
-        console.log(headers.append('Authorization', `Bearer ${token}`))
         return {
-          headers: headers.append('Authorization', `Bearer ${token}`)
-          // headers: new HttpHeaders().set('Authorization', `${token}`)
+          // headers: headers.append('Authorization', `Bearer ${token}`)
+          headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
           // headers: new HttpHeaders().set('token', `${token}`)
         };
       }
@@ -50,7 +48,7 @@ export function createApollo(httpLink: HttpLink) {
   return {
     //link: httpLink.create({uri: environment.graphql}),
     link: auth.concat(http),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache()
   };
 }
 
@@ -60,7 +58,8 @@ export function createApollo(httpLink: HttpLink) {
     SigninComponent,
     SignupComponent,
     BooksComponent,
-    HeaderComponent
+    HeaderComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -68,8 +67,6 @@ export function createApollo(httpLink: HttpLink) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // LayoutModule,
-    ElishCustomMaterialModule,
     AppRoutingModule,
     ApolloModule,
     HttpLinkModule

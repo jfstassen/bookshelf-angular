@@ -4,13 +4,17 @@ import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
 import { environment } from '../../environments/environment';
 
-const getBooks = gql`query books($all: true) {
+const getBooks = gql`{ books(all: true) {
   nodes{
+    isbn
     title
+    author
+    editor
+    cover
+    format
+    }
   }
-} 
-
-
+}
   `;
 const loginWithBasic = gql`mutation loginWithBasic($login: String!, $pass: String!, $useCookie: Boolean) {
   loginWithBasic(login: $login, pass: $pass, useCookie: $useCookie){
