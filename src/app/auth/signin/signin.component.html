@@ -18,20 +18,28 @@
         Network Connection Error.
       </div>
       <input
-        placeholder="email"
-        name="email"
-        #email="ngModel"
+        placeholder="Becode Username"
+        name="username"
+        #username="ngModel"
         ngModel
         required
+        minlength="5"
+        maxlength="30"
       />
+      <span *ngIf="username.invalid && (username.dirty || username.touched)">
+        <h4 *ngIf="username.errors['required']">Username is required.</h4>
+        <h4 *ngIf="username.errors['minlength']">
+          Username can't be less than 5 characters.
+        </h4>
+        <h4 *ngIf="username.errors['maxlength']">
+          Username can't be more than 30 characters.
+        </h4>
+      </span>
       <br />
-      <h4 *ngIf="email.invalid && (email.dirty || email.touched)">
-        Please enter a valid email.
-      </h4>
 
       <input
         type="password"
-        placeholder="app password"
+        placeholder="password"
         name="password"
         #password="ngModel"
         ngModel
@@ -42,7 +50,7 @@
       <button type="submit" [disabled]="!formData.valid">Log in</button>
 
       <span *ngIf="password.invalid && (password.dirty || password.touched)">
-        <h4 *ngIf="password.errors['required']">Password is Required.</h4>
+        <h4 *ngIf="password.errors['required']">Password is required.</h4>
         <h4 *ngIf="password.errors['minlength']">
           Password can't be less than 5 characters.
         </h4>

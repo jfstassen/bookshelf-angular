@@ -75,7 +75,7 @@ export class BackendService {
   loginUser(formData){
     return this._apollo.mutate({mutation: loginWithBasic,
       variables: {
-        login : formData.email,
+        login : formData.username,
         pass: formData.password
       }});
   }

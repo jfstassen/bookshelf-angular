@@ -27,6 +27,7 @@ export class SigninComponent implements OnInit  {
 }
 
   login(formData) {
+    this.dataLoading = true;
     this._backendService.loginUser(formData).subscribe(res => {
       this.dataLoading = false;
       if(res.data["loginWithBasic"].token != "") {
