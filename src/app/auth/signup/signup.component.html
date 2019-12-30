@@ -1,1 +1,70 @@
-<p>signup works!</p>
+<form
+  #formData="ngForm"
+  (ngSubmit)="onSubmit(formData.value)"
+  class="example-form"
+>
+  <div *ngIf="dataLoading">
+    <h1>LOADING</h1>
+  </div>
+  <div *ngIf="brokenNetwork" class="label-error">
+    Network Connection Error.
+  </div>
+  <input
+    placeholder="choose a Username"
+    name="username"
+    #username="ngModel"
+    ngModel
+    required
+    minlength="5"
+    maxlength="30"
+  />
+  <span *ngIf="username.invalid && (username.dirty || username.touched)">
+    <h4 *ngIf="username.errors['required']">Username is required.</h4>
+    <h4 *ngIf="username.errors['minlength']">
+      Username can't be less than 5 characters.
+    </h4>
+    <h4 *ngIf="username.errors['maxlength']">
+      Username can't be more than 30 characters.
+    </h4>
+  </span>
+  <br />
+
+  <input
+    type="password"
+    placeholder="choose a password"
+    name="password"
+    #password="ngModel"
+    ngModel
+    required
+    minlength="5"
+    maxlength="30"
+  />
+  <input
+    type="email"
+    placeholder="Your Becode Email"
+    name="email"
+    #email="ngModel"
+    ngModel
+    required
+    minlength="5"
+    maxlength="30"
+  /><br />
+  <div *ngIf="email.invalid && (email.dirty || email.touched)">
+    Please enter a valid email.
+  </div>
+
+  <button type="submit" [disabled]="!formData.valid">Create</button>
+
+  <span *ngIf="password.invalid && (password.dirty || password.touched)">
+    <h4 *ngIf="password.errors['required']">Password is required.</h4>
+    <h4 *ngIf="password.errors['minlength']">
+      Password can't be less than 5 characters.
+    </h4>
+    <h4 *ngIf="password.errors['maxlength']">
+      Password can't be more than 30 characters.
+    </h4>
+  </span>
+  <div *ngIf="error">
+    <h4>Login credentials are not verified. Here is the error: {{ error }}</h4>
+  </div>
+</form>

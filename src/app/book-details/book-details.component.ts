@@ -26,12 +26,7 @@ ngOnInit() {
     var isbn = params.get('isbn');
     this.retrievebookInfo(isbn);
     console.log(isbn);
-
   });
-
-
-
-  
 
 }
 retrievebookInfo(isbn) {

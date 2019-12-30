@@ -2,11 +2,6 @@
   <div>
     <div>HEADER</div>
     <a [routerLink]="['/']">HOME</a>
-    <div *ngIf="logged">
-      <div>|</div>
-      <a [routerLink]="['auth/logout']">submit</a>
-      <div *ngIf="user" (click)="logout()">logout</div>
-    </div>
   </div>
   <div>
     <div *ngIf="user">lol</div>

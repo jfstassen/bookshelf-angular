@@ -21,12 +21,8 @@ const getBookInfo = gql`query book($isbn: ID!) {
     title
     author
     editor
-
     cover
-    
-    
   }
-  
 }`
 const loginWithBasic = gql`mutation loginWithBasic($login: String!, $pass: String!, $useCookie: Boolean) {
   loginWithBasic(login: $login, pass: $pass, useCookie: $useCookie){
@@ -35,11 +31,22 @@ const loginWithBasic = gql`mutation loginWithBasic($login: String!, $pass: Strin
     headers
   }
 }`;
-const createUser_M = gql`mutation updateQueries($name: String!, $email: String!, $password: String!) {
-  addUser_M(name:$name, email:$email, password:$password){
-    email
-  }
+// const createUser_M = gql`mutation updateQueries($name: String!, $email: String!, $password: String!) {
+//   addUser_M(name:$name, email:$email, password:$password){
+//     email
+//   }
+// }`;
+const registerwithbasic = gql`mutation registerWithBasic($login: String!, $pass: String!, $email: String!){
+	registerWithBasic(
+    target: 
+    {
+      collection:JUNIOR,
+      email:$email},
+		login: $login,
+    pass: $pass
+  )
 }`;
+
 const updateUser_M = gql`mutation updateQueries($name: String!, $email: String!, $password: String!) {
   updateUser_M(name:$name, email:$email, password:$password){
     name
@@ -79,12 +86,13 @@ export class BackendService {
         pass: formData.password
       }});
   }
-  createUser(formData){
-    return this._apollo.mutate({mutation: createUser_M,
+  registerwithbasic(formData){
+    console.log(formData)
+    return this._apollo.mutate({mutation: registerwithbasic,
       variables: {
-        name : formData.name,
+        login : formData.username,
         email : formData.email,
-        password : formData.password
+        pass : formData.password
       }});
   }
   updateUser(formData){
