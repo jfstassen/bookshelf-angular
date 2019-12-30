@@ -18,7 +18,7 @@ const getBooks = gql`{ books(all: true) {
 const getBookInfo = gql`query book($isbn: ID!) {
   book(isbn: $isbn){
     isbn
-    titl
+    title
     author
     editor
 
@@ -65,10 +65,10 @@ export class BackendService {
   getBooks(){
     return this._apollo.watchQuery({query: getBooks});
   }
-  getBookInfo(){
+  getBookInfo(isbn){
     return this._apollo.watchQuery({query: getBookInfo,
     variables: {
-      isbn: "978-1-685-28673-4"
+      isbn: isbn
     }});
   }
   

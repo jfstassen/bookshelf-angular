@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend-service';
-import { Router } from '@angular/router';
+import { Router, Params, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs";
+
 
 @Component({
   selector: 'app-book-details',
@@ -16,15 +17,26 @@ export class BookDetailsComponent implements OnInit {
   dataLoading: boolean = false;
   brokenNetwork = false;
   user: boolean = false;
-constructor(private _router: Router, private _backendService: BackendService) { }
+constructor(private _router: Router, private _backendService: BackendService, private route: ActivatedRoute) { }
 
 ngOnInit() {
-  this.retrievebookInfo();
+    
+  this.route.paramMap.subscribe(params => {
+
+    var isbn = params.get('isbn');
+    this.retrievebookInfo(isbn);
+    console.log(isbn);
+
+  });
+
+
+
+  
 
 }
-retrievebookInfo() {
+retrievebookInfo(isbn) {
   this.dataLoading = true;
-  this._backendService.getBookInfo().valueChanges.subscribe(res => {
+  this._backendService.getBookInfo(isbn).valueChanges.subscribe(res => {
     this.dataLoading = false;
     // this.book = res.data["book"];
     // console.log(this.book)
