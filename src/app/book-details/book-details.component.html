@@ -1,5 +1,5 @@
 <div class="outercontainer">
-  <div *ngIf="dataLoading" class="container">
+  <div *ngIf="dataLoading" class="container-data">
 
         <h3>{{ error }}</h3>
         <img
@@ -10,8 +10,8 @@
 
   </div>
 
-  <div *ngFor="let b of book" class="container">
-    <div class="image_container"><img src="{{ b.cover }}" alt="" /></div>
+  <div *ngFor="let b of book" class="container-image">
+    <img src="{{ b.cover }}" alt="" />
     <div class="infos">
       <p>Title: {{ b.title }}</p>
       <p>Author: {{ b.author }}</p>
@@ -21,18 +21,4 @@
   <!-- <div *ngFor="let item of book | keyvalue">
     Key: <b></b> and Value: <b>{{item.value.isbn}}</b>
 </div> -->
-
-  <!-- <div *ngFor="let list of books">
-      <div class="card">
-        <img src="{{ list.cover }}" alt="Avatar" style="width:100%" />
-        <div class="container">
-          <h4>
-            <b>{{ list.title }}</b>
-          </h4>
-          <p>Author: {{ list.author }}</p>
-          <p>Editor: {{ list.editor }}</p>
-          <a routerLink="/books/{{ list.isbn }}">View Page</a>
-        </div>
-      </div>
-    </div> -->
 </div>
