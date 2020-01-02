@@ -80,7 +80,6 @@ export function createApollo(httpLink: HttpLink) {
     },
     { provide: NZ_I18N, useValue: en_US }
   ],
-<<<<<<< HEAD
   providers: [
     BackendService,
     AuthGuard,
@@ -91,8 +90,6 @@ export function createApollo(httpLink: HttpLink) {
     },
     SigninComponent
   ],
-=======
->>>>>>> amaury
   bootstrap: [AppComponent]
 })
 export class AppModule {}
