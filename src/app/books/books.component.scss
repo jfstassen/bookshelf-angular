@@ -1,35 +1,31 @@
 @import "~ng-zorro-antd/ng-zorro-antd.min.css";
-.outercontainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    // column-count: 4;
-    // column-gap: 1em;
+.outercontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 10px;
 }
 .card {
-  height: 600px;
-  padding:5px;
+  position: relative;
+  height: 500px;
+  padding: 5px;
   overflow: auto;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   width: 300px;
   margin: 1em;
-  img{
-    width:100%;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  }
+  img {
+    width: 100%;
     height: 300px;
     object-fit: scale-down;
+    margin-bottom: 10px;
   }
- 
+  button {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
   }
-  
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
-  }
-  
-  /* Add some padding inside the card container */
-  .container {
-    padding: 2px 16px;
-  }
-
-
+}
