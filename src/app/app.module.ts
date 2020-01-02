@@ -22,6 +22,8 @@ import { BooksComponent } from "./books/books.component";
 import { HeaderComponent } from "./header/header.component";
 import { BookDetailsComponent } from "./book-details/book-details.component";
 
+import { NgZorroAntdModule, NZ_I18N, en_US, NZ_ICONS } from "ng-zorro-antd";
+
 export function createApollo(httpLink: HttpLink) {
   const http = httpLink.create({ uri: environment.graphql });
 
@@ -65,8 +67,20 @@ export function createApollo(httpLink: HttpLink) {
     HttpClientModule,
     AppRoutingModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    NgZorroAntdModule
   ],
+  providers: [
+    BackendService,
+    AuthGuard,
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: createApollo,
+      deps: [HttpLink]
+    },
+    { provide: NZ_I18N, useValue: en_US }
+  ],
+<<<<<<< HEAD
   providers: [
     BackendService,
     AuthGuard,
@@ -77,6 +91,8 @@ export function createApollo(httpLink: HttpLink) {
     },
     SigninComponent
   ],
+=======
+>>>>>>> amaury
   bootstrap: [AppComponent]
 })
 export class AppModule {}
