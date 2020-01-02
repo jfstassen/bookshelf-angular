@@ -78,17 +78,8 @@ export function createApollo(httpLink: HttpLink) {
       useFactory: createApollo,
       deps: [HttpLink]
     },
+    SigninComponent,
     { provide: NZ_I18N, useValue: en_US }
-  ],
-  providers: [
-    BackendService,
-    AuthGuard,
-    {
-      provide: APOLLO_OPTIONS,
-      useFactory: createApollo,
-      deps: [HttpLink]
-    },
-    SigninComponent
   ],
   bootstrap: [AppComponent]
 })
