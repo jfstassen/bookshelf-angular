@@ -15,8 +15,8 @@ const routes: Routes = [
   { path: 'auth/signin', component: SigninComponent},
   { path: 'books', component: BooksComponent, canActivate: [AuthGuard]},
   { path: 'books/:isbn', component: BookDetailsComponent, canActivate: [AuthGuard]},
-  { path: '', component: SigninComponent},
-  { path: '**', redirectTo: 'auth/signin', pathMatch: 'full' }
+  { path: '', component: BooksComponent, canActivate: [AuthGuard]},
+  { path: '**', component: BooksComponent, canActivate: [AuthGuard], pathMatch: 'full' }
 
 
 

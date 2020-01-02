@@ -21,8 +21,7 @@ export class SigninComponent implements OnInit  {
 
   ngOnInit() {
     if(localStorage.getItem("token")) {
-      this.user = true;
-      console.log(localStorage)
+      return this.user = true;
     }
 }
 
