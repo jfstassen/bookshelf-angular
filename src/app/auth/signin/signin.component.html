@@ -1,11 +1,8 @@
 
 <div >
-  <div>
-    <h1>BECODE BOOKS</h1>
-  </div>
   <div *ngIf="!this.user; else showLoggedIn">
-    <h3>LOGIN</h3>
-    <hr />
+   
+    <h2>Sign in</h2>
     <form
       #formData="ngForm"
       (ngSubmit)="login(formData.value)"
@@ -17,7 +14,7 @@
       <div *ngIf="brokenNetwork" class="label-error">
         Network Connection Error.
       </div>
-      <input
+      <input nz-input
         placeholder="Becode Username"
         name="username"
         #username="ngModel"
@@ -31,13 +28,10 @@
         <h4 *ngIf="username.errors['minlength']">
           Username can't be less than 5 characters.
         </h4>
-        <h4 *ngIf="username.errors['maxlength']">
-          Username can't be more than 30 characters.
-        </h4>
       </span>
       <br />
 
-      <input
+      <input nz-input
         type="password"
         placeholder="password"
         name="password"
@@ -47,15 +41,11 @@
         minlength="5"
         maxlength="30"
       /><br />
-      <button type="submit" [disabled]="!formData.valid">Log in</button>
 
       <span *ngIf="password.invalid && (password.dirty || password.touched)">
         <h4 *ngIf="password.errors['required']">Password is required.</h4>
         <h4 *ngIf="password.errors['minlength']">
           Password can't be less than 5 characters.
-        </h4>
-        <h4 *ngIf="password.errors['maxlength']">
-          Password can't be more than 30 characters.
         </h4>
       </span>
       <div *ngIf="error">
@@ -63,21 +53,23 @@
           Login credentials are not verified. Here is the error: {{ error }}
         </h4>
       </div>
-    </form>
 
-    <hr />
-    <div>
-      <button routerLink="../auth/signup">
-        <a href=""
-          >No account?
+      <button nz-button nzType="primary" type="submit" [disabled]="!formData.valid">Log in</button>
+
+    </form>
+        
+      <p>
+        <a routerLink="../../auth/signup">No account?
           <strong>Create one with your email here</strong>
         </a>
-      </button>
-    </div>
+      </p>
+    
   </div>
+
   <ng-template #showLoggedIn>
-    <button type="button" (click)="logout()" mat-raised-button color="primary">
+    <button nz-button nzType="primary" type="button" (click)="logout()" mat-raised-button color="primary">
       Logout
     </button>
   </ng-template>
+
 </div>

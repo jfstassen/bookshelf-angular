@@ -1,5 +1,5 @@
+import { SigninComponent } from "./../auth/signin/signin.component";
 import { Component, OnInit, NgModule } from "@angular/core";
-import { SigninComponent } from "../auth/signin/signin.component";
 import { Router } from "@angular/router";
 
 @Component({
