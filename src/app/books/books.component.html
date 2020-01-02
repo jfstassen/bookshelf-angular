@@ -7,17 +7,21 @@
       alt=""
     />
   </div>
-  <div *ngFor="let list of books">
-    <div class="card">
-      <img src="{{ list.cover }}" alt="Avatar" style="width:100%" />
-      <div class="container">
-        <h4>
-          <b>{{ list.title }}</b>
-        </h4>
-        <p>Author: {{ list.author }}</p>
-        <p>Editor: {{ list.editor }}</p>
-        <a routerLink="/books/{{ list.isbn }}">View Page</a>
-      </div>
-    </div>
+
+      <div  *ngFor="let list of books">
+        <div class="card">
+          <img src="{{ list.cover }}" alt="Avatar" />
+          <div class="container">
+            <h4>
+              <b>{{ list.title }}</b>
+            </h4>
+            <p>Author: {{ list.author }}</p>
+            <p>Editor: {{ list.editor }}</p>
+            <button nz-button nzType="primary" routerLink="/books/{{ list.isbn }}">View Page</button>
+          </div>
+        </div>
+   
+
   </div>
+ 
 </div>

@@ -1,3 +1,22 @@
-.header{
-    background-color: red;
-}
+
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+
+  .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 24px;
+    float: left;
+  }
+  [nz-menu] {
+    line-height: 64px;
+    color:white;
+    a{
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+    }
+  }

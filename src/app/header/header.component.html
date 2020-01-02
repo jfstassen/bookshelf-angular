@@ -1,11 +1,12 @@
-<div class="header">
-  <div>
-    <div>HEADER</div>
-    <a [routerLink]="['/']">HOME</a>
-  </div>
-  <div>
-    <div *ngIf="user">lol</div>
-    <div *ngIf="logged" (click)="logout()">logout</div>
-    <a *ngIf="!logged" [routerLink]="['auth/signin']">login</a>
+<div nz-row>
+  <div nz-col nzSpan="24">
+    <nz-header >
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item><a [routerLink]="['/']">HOME</a></li>
+        <li *ngIf="!logged" nz-menu-item><a  [routerLink]="['auth/signin']">Login</a></li>
+        <li *ngIf="logged" nz-menu-item><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </nz-header>
   </div>
 </div>
