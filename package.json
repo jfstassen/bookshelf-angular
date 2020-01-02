@@ -29,6 +29,7 @@
     "apollo-link-context": "^1.0.19",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
+    "ng-zorro-antd": "^8.5.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
