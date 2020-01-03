@@ -1,0 +1,26 @@
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+h2{
+    padding:10px;
+    text-align: center;
+    color:orange;
+    text-transform: uppercase;
+
+}
+form{
+    width: 500px;
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.452);
+    padding:20px;
+    margin:0 auto;
+    input{
+        width: 100%;
+        padding: 20px;
+        margin: 10px 0;
+    }
+    button{
+        margin:10px 0;
+    }
+}
+p{
+    text-align: center;
+    padding:10px 0;
+}

@@ -1,5 +1,5 @@
+import { SigninComponent } from "./../auth/signin/signin.component";
 import { Component, OnInit, NgModule } from "@angular/core";
-import { SigninComponent } from "../auth/signin/signin.component";
 import { Router } from "@angular/router";
 
 @Component({
@@ -13,7 +13,9 @@ export class HeaderComponent implements OnInit {
     private _router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.signincomponent.user = true;
+  }
 
   logout() {
     window.localStorage.removeItem("token");
