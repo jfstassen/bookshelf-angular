@@ -1,12 +1,15 @@
-<div nz-row>
-  <div nz-col nzSpan="24">
-    <nz-header >
-      <div class="logo"></div>
-      <ul nz-menu nzTheme="dark" nzMode="horizontal">
-        <li nz-menu-item><a [routerLink]="['/']">HOME</a></li>
-        <li nz-menu-item><a  [routerLink]="['auth/signin']">Login</a></li>
-        <li nz-menu-item><a (click)="logout()" >Logout</a></li>
-      </ul>
-    </nz-header>
+
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      
+      <nz-header >
+        <ul nz-menu nzTheme="dark" nzMode="horizontal">
+            <li nz-menu-item><a [routerLink]="['/']">HOME</a></li>
+            <li  *ngIf="!this.signincomponent.user" nz-menu-item><a  [routerLink]="['auth/signin']">Login</a></li>
+            <li  *ngIf="!this.signincomponent.user" nz-menu-item><a  [routerLink]="['auth/signup']">Register</a></li>
+            <li  *ngIf="this.signincomponent.user" nz-menu-item><a (click)="logout()" >Logout</a></li>
+        </ul>
+      </nz-header>
+    </div>
   </div>
-</div>
+
