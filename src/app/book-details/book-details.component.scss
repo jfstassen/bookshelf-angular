@@ -1,21 +1,19 @@
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+.outercontainer {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 50px;
 
-.outercontainer{
-width:80%;
-margin:0 auto;
-padding-top:50px;
-
-.container-image {
-  display: flex;
-flex-direction: row;
-justify-content: center;
-padding: 25px;
-align-items: center;
-box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.548);
-img{
-  padding-right:20px;
-  width:300px;
+  .container-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 25px;
+    align-items: center;
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.548);
+    img {
+      padding-right: 20px;
+      width: 300px;
+    }
+  }
 }
-}
-
-}
-

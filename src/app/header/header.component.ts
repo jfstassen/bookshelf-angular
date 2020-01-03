@@ -13,7 +13,9 @@ export class HeaderComponent implements OnInit {
     private _router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.signincomponent.user = true;
+  }
 
   logout() {
     window.localStorage.removeItem("token");

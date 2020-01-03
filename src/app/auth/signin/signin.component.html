@@ -24,8 +24,9 @@
         maxlength="30"
       />
       <span *ngIf="username.invalid && (username.dirty || username.touched)">
-        <h4 *ngIf="username.errors['required']">Username is required.</h4>
-        <h4 *ngIf="username.errors['minlength']">
+        
+        <h4  *ngIf="username.errors['required']">Username is required.</h4 >
+        <h4  *ngIf="username.errors['minlength']">
           Username can't be less than 5 characters.
         </h4>
       </span>
