@@ -4,8 +4,8 @@
       <div class="logo"></div>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
         <li nz-menu-item><a [routerLink]="['/']">HOME</a></li>
-        <li *ngIf="!logged" nz-menu-item><a  [routerLink]="['auth/signin']">Login</a></li>
-        <li *ngIf="logged" nz-menu-item><a (click)="logout()" >Logout</a></li>
+        <li nz-menu-item><a  [routerLink]="['auth/signin']">Login</a></li>
+        <li nz-menu-item><a (click)="logout()" >Logout</a></li>
       </ul>
     </nz-header>
   </div>
