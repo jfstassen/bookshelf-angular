@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
+  test: boolean;
   constructor(
     private signincomponent: SigninComponent,
     private _router: Router
@@ -15,11 +16,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.signincomponent.user = true;
+    this.test = this.signincomponent.user;
   }
 
   logout() {
     window.localStorage.removeItem("token");
     this.signincomponent.user = false;
+    this.test = this.signincomponent.user;
     this._router.navigate(["/"]);
   }
 }
