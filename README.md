@@ -7,11 +7,11 @@ Le lien vers notre site : https://fervent-lovelace-f53f5e.netlify.com/
 Possibilité de s'inscrire. (avec mail d'inscription de BeCode)  
 Possibilité de se connecter.  
 Afficher une liste des livres.  
-Afficher les informations détaillés des livres.  
+Afficher les informations détaillées des livres.  
 
 
 ## Installation et lancement 
-#### Tapez les commandes suivante dans votre terminal  : 
+#### Tapez les commandes suivantes dans votre terminal  : 
 ``` 
 npm install
 ```
@@ -33,4 +33,3 @@ et finalement accédez à http://localhost:4200/
 :bust_in_silhouette: [Amaury Henrottay](https://github.com/Amauryh24)  
 :bust_in_silhouette: [Ayse Akdede](https://github.com/Ayse-Akdede)  
 
-![logo](https://media.tenor.com/images/80b1305afdc65d6da15c7e92be8406e4/tenor.gif)
